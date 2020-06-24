@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fb Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Link</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fb_users.each do |fb_user| %>
+      <tr>
+        <td><%= fb_user.link %></td>
+        <td><%= fb_user.name %></td>
+        <td><%= fb_user.phone %></td>
+        <td><%= link_to 'Show', fb_user %></td>
+        <td><%= link_to 'Edit', edit_fb_user_path(fb_user) %></td>
+        <td><%= link_to 'Destroy', fb_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fb User', new_fb_user_path %>
