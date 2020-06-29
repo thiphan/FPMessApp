@@ -4,6 +4,7 @@ class CreateFbUsers < ActiveRecord::Migration[6.0]
       t.string :link
       t.string :name
       t.string :phone
+      t.string :email
 
       t.timestamps
     end

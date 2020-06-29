@@ -40,6 +40,7 @@ class FbUsersController < ApplicationController
   # PATCH/PUT /fb_users/1
   # PATCH/PUT /fb_users/1.json
   def update
+    @fb_user = FbUser.find(params[:id])
     respond_to do |format|
       if @fb_user.update(fb_user_params)
         format.html { redirect_to @fb_user, notice: 'Fb user was successfully updated.' }
@@ -69,6 +70,6 @@ class FbUsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fb_user_params
-      params.require(:fb_user).permit(:link, :name, :phone)
+      params.require(:fb_user).permit(:link, :name, :email, :password)
     end
 end

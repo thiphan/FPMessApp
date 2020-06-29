@@ -11,22 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :link %>
-    <%= form.text_field :link %>
-  </div>
+  
 
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
+ 
   <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
+  <%= form.label :email %>
+  <%= form.email_field :email %>
+</div>
+
+<div class="field">
+<%= form.label :phone %>
+<%= form.text_field :phone %>
+</div>
+
+  <div class="field">
+    <%= form.label :link %>
+    <%= form.text_field :link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit(@fb_user.new_record? ? "Sign Up" : "Update Account" ) %>
   </div>
 <% end %>
