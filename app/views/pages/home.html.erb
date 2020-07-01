@@ -1,7 +1,22 @@
-
+<p id="notice"><%= notice %></p>
+<head>
+   
+    
+    <title>FB Mess App | Welcome</title>
 <head>
 <%= react_component("Home", {tagline: "super duper site"}) %>
 </head>
 
-<h1>Pages#home</h1>
+<% if logged_in? -%>Welcome, <%= current_user.name %><% end -%>
+<h1>Welcome to FP Mess App</h1>
+
+
+<div >
+    <p><%= link_to "Log In", login_path %></p>
+</div>
+
+<div >
+    <%= link_to 'Sign Up', signup_path %>
+</div>
+
 <p>Find me in app/views/pages/home.html.erb</p>

@@ -1,4 +1,6 @@
-<h1>Log In</h1>
+<h1>Log In Page</h1>
+
+<% if logged_in? -%>Welcome, <%= current_user.name %><% end -%>
 
 <%= form_with(scope: :session, url: login_path, local: true) do |form| %>
    
@@ -18,4 +20,8 @@
     <div class="actions">
       <%= form.submit "Log In"  %>
     </div>
+
+
   <% end %>
+
+  <%= link_to "Home Page", root_path %>

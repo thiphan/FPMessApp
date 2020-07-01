@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    include SessionsHelper
     def new
     end
 
@@ -16,8 +17,8 @@ class SessionsController < ApplicationController
     
 
     def destroy
-        session[:fb_user_id] = nil
-        flash[:notice] = "Logged out"
+        log_out
+        flash[:notice] = "Logged out successfully."
         redirect_to root_path
     end 
 end
