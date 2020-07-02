@@ -1,6 +1,9 @@
 class FbUsersController < ApplicationController
+  include FbUsersHelper
+  include ApplicationHelper
+  
   before_action :set_fb_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   # GET /fb_users
   # GET /fb_users.json
   def index
@@ -56,6 +59,7 @@ class FbUsersController < ApplicationController
   # DELETE /fb_users/1.json
   def destroy
     @fb_user.destroy
+    session[:fb_user_id] = nil if @fb_user == current_user
     respond_to do |format|
       format.html { redirect_to fb_users_url, notice: 'Fb user was successfully destroyed.' }
       format.json { head :no_content }
@@ -70,6 +74,13 @@ class FbUsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fb_user_params
-      params.require(:fb_user).permit(:link, :name, :email, :password)
+      params.require(:fb_user).permit(:link, :name, :email, :password, :phone)
+    end
+    
+    def require_same_user
+      if current_user != @fb_user && !current_user.try(:admin?)
+        flash[:alert] = "You can only edit your own account"
+        redirect_to @fb_user
+      end
     end
 end

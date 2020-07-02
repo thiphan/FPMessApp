@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<% if logged_in? -%>Welcome, <%= current_user.name %><% end -%>
+<% if logged_in? %>Welcome, <%= current_user.name %><% end %>
 
 <p>
   <strong>Link:</strong>
@@ -9,6 +9,7 @@
 <p>
   <strong>Name:</strong>
   <%= @fb_user.name %>
+  
 </p>
 
 <p>
@@ -17,4 +18,10 @@
 </p>
 
 <%= link_to 'Update Account Information', edit_fb_user_path(@fb_user) %> |
+
+<% if current_user.try(:admin?) %> 
+  <%= link_to 'Delete User |' , delete_path %>
+<% end %> 
+
 <%= link_to 'Log Out', logout_path %>
+

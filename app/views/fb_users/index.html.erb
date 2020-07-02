@@ -1,33 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Fb Users</h1>
+<h1>Admin Control Panel </h1>
 
 <table>
   <thead>
     <tr>
       <th>Link</th>
       <th>Name</th>
+      <th>Email</th>
       <th>Phone</th>
-      <th colspan="3"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
-  # <tbody>
-  #   <% @fb_users.each do |fb_user| %>
-  #     <tr>
-  #       <td><%= fb_user.link %></td>
-  #       <td><%= fb_user.name %></td>
-  #       <td><%= fb_user.phone %></td>
-  #       <td><%= fb_user.password %></td>
+  <tbody>
+    <% @fb_users.each do |fb_user| %>
+      <% if !fb_user.admin? %>
+        <tr>
+          <td><%= fb_user.link %></td>
+          <td><%= fb_user.name %></td>
+          <td><%= fb_user.email %></td>
+          <td><%= fb_user.phone %></td>
 
-  #       <td><%= link_to 'Show', fb_user %></td>
-  #       <td><%= link_to 'Edit', edit_fb_user_path(fb_user) %></td>
-  #       <td><%= link_to 'Destroy', fb_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  #     </tr>
-  #   <% end %>
-  # </tbody>
+          <td><%= link_to 'Show', fb_user %></td>
+          <td><%= link_to 'Edit', edit_fb_user_path(fb_user) %></td>
+          <td><%= link_to 'Destroy', fb_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Fb User', signup_path %>
+<%= link_to 'Log Out', logout_path %>
+
