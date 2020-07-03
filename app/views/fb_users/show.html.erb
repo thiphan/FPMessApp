@@ -1,19 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Link:</strong>
-  <%= @fb_user.link %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @fb_user.name %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
-  <%= @fb_user.phone %>
+  <strong>Email:</strong>
+  <%= @user.email %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_fb_user_path(@fb_user) %> |
 <%= link_to 'Back', fb_users_path %>
