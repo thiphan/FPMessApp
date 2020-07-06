@@ -1,2 +1,75 @@
-<h1>Setting Your Account </h1>
-<%= link_to "Change your password", edit_user_registration_path %>
+
+<div class="bg-blue-900 px-4 py-3">
+<div
+  class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
+>
+  <div class="flex justify-between items-center">
+    <a href="#" class="inline-block py-2 text-white text-xl font-bold"
+      >FPMessApp</a
+    >
+    <div
+      class="inline-block cursor-pointer md:hidden">
+      <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
+      <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
+      <div class="bg-gray-400 w-8" style="height: 2px;"></div>
+    </div>
+  </div>
+  
+  <div class="hidden md:block">
+      
+          <%= link_to 'My Dashboard', setting_path, class:"inline-block py-1 md:py-4 text-gray-500 hover:text-gray-100 mr-6" %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"inline-block py-2 px-4 text-gray-700 bg-white hover:bg-gray-100 rounded-lg" %>
+      
+    </div>
+</div>
+</div>
+
+<div class="w-full p-6 bg-blue-100">
+  <div class="w-60 mx-auto pt-6 border-b-2 border-orange-500 text-center text-2xl text-blue-700">Manage Tickets & Setting Your Account </div>
+  <div class="p-2 text-center text-lg text-gray-700">We offer the best web development solutions.</div>
+  <div class="flex justify-center flex-wrap p-10">
+    <div class="relative w-48 h-64 m-5 bg-white shadow-lg">
+      <div class="flex items-center w-48 h-20 bg-red-600">
+        <i class="fas fa-bezier-curve fa-3x mx-auto text-white"></i>
+      </div>
+      <div class ="mx-2 py-2 border-b-2 text-center text-gray-700 font-semibold uppercase">
+      <%= link_to "Manage Tickets", setting_path, class:"mx-2 py-2 text-center text-gray-700 font-semibold uppercase hover:bg-red-100 text-white" %>
+      </div>
+      <p class="p-2 text-sm text-gray-700">View and manage your tickets.</p>
+      <div class="absolute right-0 bottom-0 w-8 h-8 bg-gray-300 hover:bg-red-600 text-center cursor-pointer">
+        <i class="fas fa-chevron-right mt-2 text-orange-500"></i>
+      </div>
+    </div>
+    <% if current_user.try(:admin?) %>
+      <div class="relative w-48 h-64 m-5 bg-white shadow-lg">
+      <div class="flex items-center w-48 h-20 bg-orange-600">
+        <i class="fas fa-bezier-curve fa-3x mx-auto text-white"></i>
+      </div>
+        <div class ="mx-2 py-2 border-b-2 text-center text-gray-700 font-semibold uppercase">
+          <%= link_to "Sync facebook", edit_user_registration_path , class:"mx-2 py-2 text-center text-gray-700 font-semibold uppercase hover:bg-orange-100 text-white" %>
+        </div>
+  
+      <p class="p-2 text-sm text-gray-700">Synchronize Data from facebook</p>
+      <div class="absolute right-0 bottom-0 w-8 h-8 bg-gray-300 hover:bg-blue-600 text-center cursor-pointer">
+        <i class="fas fa-chevron-right mt-2 text-orange-500"></i>
+      </div>
+    </div>
+    <% end %>
+     
+  
+    <div class="relative w-48 h-64 m-5 bg-white shadow-lg">
+      <div class="flex items-center w-48 h-20 bg-blue-500">
+        <i class="fas fa-bezier-curve fa-3x mx-auto text-white"></i>
+      </div>
+        <div class ="mx-2 py-2 border-b-2 text-center text-gray-700 font-semibold uppercase">
+          <%= link_to "Setting Account", edit_user_registration_path , class:"mx-2 py-2 text-center text-gray-700 font-semibold uppercase hover:bg-blue-100 text-white" %>
+        </div>
+  
+      <p class="p-2 text-sm text-gray-700">Update your information.</br> Change Your Password. </br> Cancel Your Account.</p>
+      <div class="absolute right-0 bottom-0 w-8 h-8 bg-gray-300 hover:bg-blue-600 text-center cursor-pointer">
+        <i class="fas fa-chevron-right mt-2 text-orange-500"></i>
+      </div>
+    </div>
+    
+  </div>
+</div>
